@@ -88,6 +88,7 @@ class SecondFragment : Fragment(),OnListItemClick {
         Toast.makeText(context,
             "userName: ${user.userName}\n userMessage: ${user.message} deleted successfully",
             Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "seif branch", Toast.LENGTH_SHORT).show()
         getAllUsers()
     }
 
