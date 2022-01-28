@@ -1,4 +1,4 @@
-package com.seif.roomwithrecycler.ui
+package com.seif.roomwithrecycler.ui.fragments
 
 import com.seif.roomwithrecycler.model.entity.User
 

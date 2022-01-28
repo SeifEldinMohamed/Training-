@@ -1,4 +1,4 @@
-package com.seif.roomwithrecycler.model.local
+package com.seif.roomwithrecycler.model.repository
 
 import com.seif.roomwithrecycler.model.entity.User
 

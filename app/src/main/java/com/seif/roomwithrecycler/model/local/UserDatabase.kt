@@ -9,7 +9,7 @@ import com.seif.roomwithrecycler.model.entity.User
 private const val DATABASE_NAME = "user_table"
 
 @Database(entities = [User::class], version = 1, exportSchema = false)
-// export schema(by default equal true) make more than one version for database in history
+// export schema(by default equal true) make more than one version for database in history (export database schema into a folder)
 abstract class UserDatabase : RoomDatabase() {
     // to access the data in database we need Dao
     abstract fun userDao(): UserDao

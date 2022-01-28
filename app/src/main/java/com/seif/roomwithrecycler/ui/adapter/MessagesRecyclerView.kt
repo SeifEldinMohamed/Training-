@@ -3,21 +3,15 @@ package com.seif.roomwithrecycler.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.seif.roomwithrecycler.R
 import com.seif.roomwithrecycler.model.entity.User
-import com.seif.roomwithrecycler.model.local.LocalRepositoryImplementation
-import com.seif.roomwithrecycler.model.local.UserDatabase
-import com.seif.roomwithrecycler.ui.OnListItemClick
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.seif.roomwithrecycler.ui.fragments.OnListItemClick
 
 class MessagesRecyclerView(var userlist: List<User>) : RecyclerView.Adapter<MessagesRecyclerView.MyViewHolder>() {
-    var onListItemClick :OnListItemClick? = null
+    var onListItemClick : OnListItemClick? = null
+  
 
    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val txt_userName: TextView = itemView.findViewById(R.id.txt_Name)

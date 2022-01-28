@@ -1,4 +1,4 @@
-package com.seif.roomwithrecycler.ui
+package com.seif.roomwithrecycler
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
