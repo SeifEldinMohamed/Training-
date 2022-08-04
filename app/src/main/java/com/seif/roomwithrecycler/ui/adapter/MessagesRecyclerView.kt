@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.seif.roomwithrecycler.R
-import com.seif.roomwithrecycler.model.entity.User
+import com.seif.roomwithrecycler.model.entity.Message
 import com.seif.roomwithrecycler.ui.fragments.OnListItemClick
 
-class MessagesRecyclerView(var userlist: List<User>) : RecyclerView.Adapter<MessagesRecyclerView.MyViewHolder>() {
+class MessagesRecyclerView(var userlist: List<Message>) : RecyclerView.Adapter<MessagesRecyclerView.MyViewHolder>() {
     var onListItemClick : OnListItemClick? = null
   
 
@@ -17,11 +17,11 @@ class MessagesRecyclerView(var userlist: List<User>) : RecyclerView.Adapter<Mess
         private val txtUserName: TextView = itemView.findViewById(R.id.txt_Name)
         private val txtMessage: TextView = itemView.findViewById(R.id.txt_Message)
 
-        fun bind(user: User) {
-            txtMessage.text = user.message
-            txtUserName.text = user.userName
+        fun bind(message: Message) {
+            txtMessage.text = message.message
+            txtUserName.text = message.userName
             itemView.setOnClickListener {
-                onListItemClick?.onListItemClick(user)
+                onListItemClick?.onListItemClick(message)
             }
         }
     }

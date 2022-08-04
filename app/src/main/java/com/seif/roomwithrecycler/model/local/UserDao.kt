@@ -5,14 +5,18 @@ import com.seif.roomwithrecycler.model.entity.User
 
 @Dao
 interface UserDao {
-    // if we have conflict (trying to add a user and we found that he is already in the database)
-    // then replace this data (update)
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun insertOrUpdateUser(user:User)
-    @Insert
-   suspend fun addUser(user:User)
+    @Insert()
+    fun addUser(user: User)
+
     @Delete
-   suspend fun deleteUser(user:User)
+    fun deleteUser(user: User)
+
     @Query("select * from user_table")
-   suspend fun getData():List<User>
+    fun getAllUsers():List<User>
+
+    @Query("select * from user_table where email =:userEmail limit 1")
+    fun getUserByEmail(userEmail:String):User
+
+    @Query("select * from user_table where email like:userEmail AND password like:userPassword limit 1")
+    fun getUserByEmailAndPassword(userEmail:String, userPassword:String):User
 }

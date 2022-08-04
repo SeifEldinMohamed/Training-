@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragments.SecondFragment">
+    tools:context=".ui.messagesFragment.MessagesFragment">
 
     <Button
         android:id="@+id/btn_add"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Add"
+        android:text="@string/add"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -25,12 +25,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="Enter Your Message"
+        android:hint="@string/enter_your_message"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_add"
         app:layout_constraintStart_toStartOf="parent"
-        android:importantForAutofill="no" />
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_shoeMessages"
@@ -63,7 +64,7 @@
         android:id="@+id/txt_notasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No Taks Yet !"
+        android:text="@string/no_taks_yet"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:visibility="gone"

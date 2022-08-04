@@ -1,7 +1,7 @@
 package com.seif.roomwithrecycler.ui.fragments
 
-import com.seif.roomwithrecycler.model.entity.User
+import com.seif.roomwithrecycler.model.entity.Message
 
 interface OnListItemClick {
-    fun onListItemClick(user: User)
+    fun onListItemClick(message: Message)
 }

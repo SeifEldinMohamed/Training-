@@ -2,4 +2,18 @@
     <string name="app_name">Room With Recycler</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add">Add</string>
+    <string name="enter_your_message">Enter Your Message</string>
+    <string name="no_taks_yet">No Taks Yet !</string>
+    <string name="logo_image_description">logo image description</string>
+    <string name="description">description</string>
+    <string name="sign_in">Sign In</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Register</string>
+    <string name="enter">Enter</string>
 </resources>

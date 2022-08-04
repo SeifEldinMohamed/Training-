@@ -4,14 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.seif.roomwithrecycler.model.entity.Message
 import com.seif.roomwithrecycler.model.entity.User
 
 private const val DATABASE_NAME = "user_table"
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [Message::class, User::class], version = 1, exportSchema = false)
 // export schema(by default equal true) make more than one version for database in history (export database schema into a folder)
 abstract class UserDatabase : RoomDatabase() {
     // to access the data in database we need instance of Dao
+    abstract fun messageDao(): MessageDao
     abstract fun userDao(): UserDao
     // we need to use singleton design pattern
     companion object {

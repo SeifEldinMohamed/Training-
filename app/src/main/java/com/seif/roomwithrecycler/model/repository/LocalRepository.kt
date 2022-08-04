@@ -1,12 +1,23 @@
 package com.seif.roomwithrecycler.model.repository
 
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
+import com.seif.roomwithrecycler.model.entity.Message
 import com.seif.roomwithrecycler.model.entity.User
 
 interface LocalRepository {
-    suspend fun insertOrUpdateUser(user: User)
-    suspend fun addUser(user:User)
-    suspend fun deleteUser(user:User)
-    suspend fun getData():List<User>
+    suspend fun insertOrUpdateMessage(message: Message)
+    suspend fun addMessage(message:Message)
+    suspend fun deleteMessage(message:Message)
+    suspend fun getMessages():List<Message>
+
+    suspend fun addUser(user: User)
+    suspend fun deleteUser(user: User)
+    suspend fun getAllUsers():List<User>
+    suspend fun getUserByEmail(userEmail:String):User
+    suspend fun getUserByEmailAndPassword(userEmail:String, userPassword:String):User
+
 }
 
 /** Repository(store) Architecture pattern
