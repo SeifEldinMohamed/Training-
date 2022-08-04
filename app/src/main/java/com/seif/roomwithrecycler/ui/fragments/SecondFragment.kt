@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import com.google.android.material.snackbar.Snackbar
 import com.seif.roomwithrecycler.databinding.FragmentSecondBinding
 import com.seif.roomwithrecycler.model.entity.User
 import com.seif.roomwithrecycler.ui.adapter.MessagesRecyclerView
 import com.seif.roomwithrecycler.ui.viewModels.UserViewModel
+import com.seif.roomwithrecycler.util.CommonFunctions.Companion.showSnackBar
 import kotlinx.coroutines.*
 
 
@@ -34,7 +36,6 @@ class SecondFragment : Fragment(), OnListItemClick {
         val userName = arguments?.getString("userName")
         val email = arguments?.getString("userEmail")
 
-        Toast.makeText(context, "Welcome $userName", Toast.LENGTH_SHORT).show()
         userViewModel = UserViewModel(view.context)
         // userViewModel = ViewModelProvider(requireActivity())[UserViewModel::class.java]
         getAllUsers()
@@ -76,11 +77,8 @@ class SecondFragment : Fragment(), OnListItemClick {
 
     override fun onListItemClick(user: User) {
         userViewModel.deleteUser(user)
-        Toast.makeText(
-            context,
-            "userName: ${user.userName}\n userMessage: ${user.message} deleted successfully",
-            Toast.LENGTH_SHORT
-        ).show()
+        showSnackBar(binding.root,"userName: ${user.userName}\n userMessage: ${user.message} deleted successfully")
         getAllUsers()
     }
+
 }

@@ -13,26 +13,28 @@ import kotlinx.coroutines.launch
 
 class UserViewModel(context: Context) : ViewModel() {
     private var localRepositoryImplementation: LocalRepositoryImplementation
+
     private var userMutableLiveData = MutableLiveData<List<User>>()
-    val userLiveData:LiveData<List<User>> get() = userMutableLiveData // when value assigned to mutable live data then userLiveData take this value from it
+    val userLiveData: LiveData<List<User>> get() = userMutableLiveData // when value assigned to mutable live data then userLiveData take this value from it
+
     init {
-         val db = UserDatabase.getInstance(context)
-         localRepositoryImplementation = LocalRepositoryImplementation(db)
+        val db = UserDatabase.getInstance(context)
+        localRepositoryImplementation = LocalRepositoryImplementation(db)
     }
 
-    fun addUser(user: User){
-        viewModelScope.launch (Dispatchers.IO) { // launch -> used when I don't need function to return thing
+    fun addUser(user: User) {
+        viewModelScope.launch(Dispatchers.IO) { // launch -> used when I don't need function to return thing
             localRepositoryImplementation.addUser(user)
         }
     }
 
-    fun getAllUsers(){
-            viewModelScope.launch (Dispatchers.IO) {
-                userMutableLiveData.postValue(localRepositoryImplementation.getData())
-            }
+    fun getAllUsers() {
+        viewModelScope.launch(Dispatchers.IO) {
+            userMutableLiveData.postValue(localRepositoryImplementation.getData())
+        }
     }
 
-    fun deleteUser(user:User){
+    fun deleteUser(user: User) {
         viewModelScope.launch {
             localRepositoryImplementation.deleteUser(user)
         }

@@ -16,24 +16,25 @@ class MainFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        binding = FragmentMainBinding.inflate(layoutInflater, container, false )
-
+        binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSignIn.setOnClickListener {
-            if(binding.editEmail.text.isNotEmpty() && binding.editPassword.text.isNotEmpty()
-                && binding.editUserName.text.isNotEmpty()){
+            if (binding.editEmail.text.isNotEmpty() && binding.editPassword.text.isNotEmpty()
+                && binding.editUserName.text.isNotEmpty()
+            ) {
                 val userName = binding.editUserName.text.toString()
                 val userEmail = binding.editEmail.text.toString()
-                val action = MainFragmentDirections.actionMainFragmentToSecondFragment(userName, userEmail)
+
+                val action =
+                    MainFragmentDirections.actionMainFragmentToSecondFragment(userName, userEmail)
                 findNavController().navigate(action)
-            }
-            else{
+            } else {
                 Toast.makeText(context, "Please enter all information", Toast.LENGTH_SHORT).show()
             }
         }

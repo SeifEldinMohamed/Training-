@@ -14,15 +14,14 @@ class MessagesRecyclerView(var userlist: List<User>) : RecyclerView.Adapter<Mess
   
 
    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val txt_userName: TextView = itemView.findViewById(R.id.txt_Name)
-        private val txt_message: TextView = itemView.findViewById(R.id.txt_Message)
+        private val txtUserName: TextView = itemView.findViewById(R.id.txt_Name)
+        private val txtMessage: TextView = itemView.findViewById(R.id.txt_Message)
 
         fun bind(user: User) {
-            txt_message.text = user.message
-            txt_userName.text = user.userName
+            txtMessage.text = user.message
+            txtUserName.text = user.userName
             itemView.setOnClickListener {
                 onListItemClick?.onListItemClick(user)
-
             }
         }
     }
